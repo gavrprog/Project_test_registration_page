@@ -15,7 +15,9 @@ def browser(request):
         print("\nstart chrome browser for test..")
         options = Options()  # или =webdriver.ChromeOptions() тогда без импорта from selenium.webdriver.chrome.options import Options
         options.add_experimental_option('prefs', {'intl.accept_languages': language_name})
+        options.add_experimental_option('excludeSwitches', ['enable-logging']) #убираем USB: usb_device_handle_win.cc:1049 Failed...
         browser = webdriver.Chrome(options=options)
+        browser.implicitly_wait(2)
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
         fp = webdriver.FirefoxProfile()
