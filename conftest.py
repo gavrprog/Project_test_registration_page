@@ -2,13 +2,13 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-def pytest_addoption(parser):
+def pytest_addoption(parser):  # встроенная функция
     parser.addoption('--browser_name', action='store', default='chrome', help="Choose browser: chrome or firefox")
-    parser.addoption('--language', action='store', default=None, help="Choose language")
+    parser.addoption('--language', action='store', default='ru', help="Choose language")
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="function")  # фикстура для обработки данных из командной строки
 def browser(request):
-    browser_name = request.config.getoption("browser_name")
+    browser_name = request.config.getoption("browser_name")  # встроенная фикстура request
     language_name = request.config.getoption("language")
     browser = None
     if browser_name == "chrome":
