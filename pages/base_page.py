@@ -36,7 +36,6 @@ class BasePage():
  
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
- #       self.browser.find_element(By.CSS_SELECTOR, "#login_link_invalid")    
 
     def is_element_present(self, how, what):  # проверяет, что элемент есть на странице
         try:
@@ -48,7 +47,7 @@ class BasePage():
     def is_not_element_present(self, how, what, timeout=4):  # проверяет, что элемент не появляется на странице в течение заданного времени
         try:
             WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((how, what)))  # ожидание
-        except TimeoutException:    
+        except TimeoutException:
             return True  # True
         return False
 
@@ -62,3 +61,6 @@ class BasePage():
 
     def go_to_mini_basket(self):
         self.browser.find_element(*BasePageLocators.MINI_BASKET).click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented probably unauthorised user"
