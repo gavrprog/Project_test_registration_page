@@ -19,3 +19,9 @@ class ProductPage(BasePage):
       prise_in_description = self.browser.find_element(*ProductPageLocators.PRISE_PRODUCT).text
       prise_in_cart = self.browser.find_element(*ProductPageLocators.IN_BASKET_PRISE).text
       assert prise_in_description == prise_in_cart, f"Product in the cart ({prise_in_cart}) is not equal to choosed product ({prise_in_description})"
+      
+   def should_not_be_success_message(self):
+      assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+
+   def should_dissapear_of_success_message(self):
+      assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not dissapear, but should be"
