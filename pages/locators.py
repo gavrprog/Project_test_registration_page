@@ -9,6 +9,10 @@ class BasePageLocators():
 class LoginPageLocators():
     LOGIN_FORM = (By.ID, 'login_form')
     LOGIN_REGISTER_FORM = (By.ID, 'register_forma')
+    FIELD_REGISTR = (By.ID, 'id_registration-email')
+    FIELD_PASS1 = (By.ID, 'id_registration-password1')
+    FIELD_PASS2 = (By.ID, 'id_registration-password2')
+    BUTTON_SUBMIT = (By.NAME, 'registration_submit')    
     
 class ProductPageLocators():
     BUTTON_ADD_TO_CART = (By.CLASS_NAME, 'btn-add-to-basket')
